@@ -237,10 +237,10 @@ def onmessage(update,bot:ObigramClient):
     try:
         thread = bot.this_thread
         username = update.message.sender.username
-        tl_admin_user = os.environ.get('Odracirr','*')
+        tl_admin_user = os.environ.get('Odracirr','Odracirr')
 
         #Descomentar debajo solo si se ba a poner el usuario admin de telegram manual
-        #tl_admin_user = '*'
+        tl_admin_user = 'Odracirr'
 
         jdb = JsonDatabase('database')
         jdb.check_create()
@@ -248,7 +248,7 @@ def onmessage(update,bot:ObigramClient):
 
         user_info = jdb.get_user(username)
 
-        if username == tl_admin_user or tl_admin_user=='*' or user_info :  # validate user
+        if username == tl_admin_user or tl_admin_user=='Odracirr' or user_info :  # validate user
             if user_info is None:
                 if username == tl_admin_user:
                     jdb.create_admin(username)
@@ -556,10 +556,10 @@ def onmessage(update,bot:ObigramClient):
 
 
 def main():
-    bot_token = os.environ.get('5371654785:AAHlebpK6HS827w7TCdBh-YDHGkF6FSryGE')
+    bot_token = os.environ.get('5303524093:AAEqqrB6sEazu7LoRv0GrmuNUuQ-yPpkMfk')
 
     #decomentar abajo y modificar solo si se va a poner el token del bot manual
-    #bot_token = 'BOT TOKEN'
+    bot_token = '5303524093:AAEqqrB6sEazu7LoRv0GrmuNUuQ-yPpkMfk'
 
     bot = ObigramClient(bot_token)
     bot.onMessage(onmessage)
